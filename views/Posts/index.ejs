@@ -1,0 +1,37 @@
+<% layout('layouts/boilerplate')%>
+
+    <% if(currentUser && currentUser.isAdmin){ %>
+        <h1>Welcome Admin!</h1>
+    <%}%>
+    <h1>All Posts</h1>
+    <div>
+        <a href="/posts/new">Add Post</a>
+    </div>
+    <% const arr = posts.reverse() %>
+<% for(let post of arr){%>
+    <div class="card mb-3">
+        <div class="row">
+            <div class="col-md-4">
+                <% if(post.image.length){ %>
+                <img class="img-fluid" src="<%= post.image[0].url%>">
+                
+                <%}else{ %>
+                    
+                <img class="img-fluid" 
+                    src="https://res.cloudinary.com/dgrfrzcio/image/upload/v1617883759/YelpCamp/xphq09geshh1nvyqrlwe.jpg">
+                <%}%>
+            </div>
+        </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title"><%= post.title %></h5>
+                    <p class="card-text"><%= post.description %></p>
+                    <p class="card-text">
+                        <small class="text-muted"><%= post.location%></small>
+                    </p>
+                    <a class="btn btn-primary btn-lg" href="/posts/<%=post._id%>">View <%=post.title %> </a>
+                </div>
+        </div>
+    </div>
+<%}%>
+    

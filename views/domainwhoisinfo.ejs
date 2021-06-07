@@ -1,0 +1,84 @@
+<% layout('layouts/boilerplate')%>
+<style>
+  
+  </style>
+  
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title><%title%></title>
+    bootstrap
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+     -->
+        <!-- bootstrap -->
+    <!--css
+    <style>
+        body {
+          background-color: #ccebff;
+        }
+        </style>
+    -->
+    
+<!-- </head> --> 
+
+<!-- <body background-color:#b3e0ff; > -->
+
+<div class="row">
+    <div class="container">
+        <h1 class="text-center">
+        </br>
+            DOMAIN CHECKER
+        </br></br>
+        </h1>
+        <h3 class="text-center" >IT ALL STARTS WITH A DOMAIN NAME ! </h3>
+        <form action="/domainwhoisinfo" class="validated-form" method="post" novalidate>
+          <div class="form-group">
+              
+              <div class="mb-3">
+                <input class="form-control" type="text" name="domain" id="" placeholder="Enter Domain Name" required>
+              </div>
+            </div>
+          
+          <div class="form-group">
+            <div>
+              <button style="margin: auto; display: block;" class="btn btn-primary btn-lg">
+                  Check Availability
+              </button>
+            </div>
+
+          </div>
+        </form>
+        </br>
+
+        <%if (flag) { %>
+            <h4 class="text-center">Results</h4>
+            <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Domain Name</th>
+                    <th>RegistrarWhoisServer</th>
+                    <th>RegistrarUrl</th>
+                    <th>Registrar</th>
+                    <th>Creation Date</th>
+                    <th>Domain Age</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><%=data.domainName%></td>
+                    <td><%=data.registrarWhoisServer%></td>
+                    <td><%=data.registrarUrl%></td>
+                    <td><%=data.registrar%></td>
+                    <td><%=date%></td>
+                    <td><%=domainAge%></td>
+                  </tr>
+                </tbody>
+              </table>
+        <% } %>
+        <br><br>    
+    </div>
+
+</div>

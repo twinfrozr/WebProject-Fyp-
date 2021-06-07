@@ -1,0 +1,40 @@
+
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-primary">
+    <div class="container-fluid">
+      <a class="navbar-brand font-weight-bold" href="#">Helpreneur</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link font-weight-bold" href="/">Home</a>
+          <a class="nav-link font-weight-bold" href="/about">About</a>
+          <a class="nav-link font-weight-bold" href="/posts">Posts</a>
+          <a class="nav-link font-weight-bold" href="/posts/new">New Post</a>
+          <a class="nav-link font-weight-bold" href="/domain">Domain Checker</a>
+          <a class="nav-link font-weight-bold" href="/scrape">Check Product Viability</a>
+          
+          
+          <form action="/posts" method="GET" class="form-inline">
+            <div class="form-group">
+                <input type="text" name="search" placeholder="Posts search..." class="form-control">
+                <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+        </form>
+          
+        </div>
+        
+      </div>
+        
+        <div class="navbar-nav ml-auto">
+          <% if(!currentUser) {%>
+          <a class="nav-link font-weight-bold" href="/login">Login</a>
+          <a class="nav-link font-weight-bold" href="/register">Register</a>
+          <%} else {%>
+          <a class="nav-link" href="/logout">Logout</a>
+          <%}%>
+        </div>
+      </div>
+    </div>
+  </nav>

@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate')%>
+
+<div class="row">
+  <div class="container">
+      <h1 class="text-center">
+      </br>
+          PRODUCT VIABILITY
+      </br></br>
+      </h1>
+      <h3 class="text-center" >ENTER NAME OF THE PRODUCT TO SEARCH... </h3>
+      <form action="/scrapePage" method="post">
+          <div class="form-group">
+              
+              <div class="mb-3">
+                <input class="form-control" type="text" name="product" id="" placeholder="Enter Product Name" required>
+              </div>
+            </div>
+          <div class="form-group">
+            <button style="margin: auto; display: block;" class="btn btn-primary btn-lg">
+              Check Viability
+          </button>
+          </div>
+          <div>
+            <%for(var i = 0; i < d.length; i++){%>
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="<%= img[i] %>" class="card-img-top" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      
+                      <p class="card-text"><%= d[i] %></p>
+                    
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="card mb-3">
+                <img src="<%= img[i] %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  
+                  <p class="card-text"><%= d[i] %></p>
+                  
+                </div>
+              </div> -->
+            <%}%>
+             
+          </div>
+       </form>
+    </div>
+  </div>
