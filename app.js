@@ -215,7 +215,7 @@ app.post('/scrapePage',isLoggedIn, async(req,res)=>{
             
             s = d.write(data);
             var productList = s.split("@");
-            console.log(s);
+            
           
             //const every_nth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
             //console.log(productList)
@@ -237,7 +237,7 @@ app.post('/scrapePage',isLoggedIn, async(req,res)=>{
             }
             cleanProductList.pop();
             imgList.pop()
-                
+            console.log(cleanProductList);
             
                 
             res.render("scrapePage",{d:cleanProductList, img:imgList});

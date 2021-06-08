@@ -105,7 +105,7 @@ def scrapeData(keyword):
         newList = sorted(arr, key=lambda x: x.NoOfRating, reverse=True)
 
         for obj in newList:
-            print('Product Name: ' , obj.name,' | Price:(Rs) ', obj.price,' | Average Rating: ', obj.rating,' | No of Reviews: ', obj.NoOfRating, ' | ImgURL:^',obj.imgURL, '@')
+            print('| Product Name: ' , obj.name, '\n' ,' | Price:(Rs) ', obj.price, '\n',' | Average Rating: ', obj.rating, '\n',' | No of Reviews: ', obj.NoOfRating, '\n', '  ImgURL:^',obj.imgURL, '@')
         
             index +=1
 
