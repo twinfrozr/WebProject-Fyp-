@@ -2,6 +2,8 @@ if(process.env.NODE_ENV !== "production"){
     require('dotenv').config();
 }
 
+
+
 console.log(process.env.SECRET)
 console.log(process.env.API_KEY)
 
@@ -30,6 +32,8 @@ const postRoute = require('./routes/postRoute');
 const reviewsRoute = require('./routes/reviews');
 const domainRoute = require('./routes/domainRoutes');
 
+
+
 const { StringDecoder } = require('string_decoder');
 
 const {isLoggedIn,isAuthor,validatePost} = require('./middleware');
@@ -38,8 +42,9 @@ const { json } = require('express');
 const catchAsync = require('./utils/catchAsync.js');
 
 // var obj;
+const dbUrl = process.env.DB_URL ||'mongodb://localhost:27017/user-post';
 
-mongoose.connect('mongodb://localhost:27017/user-post',{
+mongoose.connect(dbUrl,{
     useNewUrlParser : true,
     useCreateIndex: true,
     useUnifiedTopology:true,
@@ -62,8 +67,10 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(mongoSanitize())
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret';
+
 const sessionConfig = {
-    secret: 'thisshouldbeabettersecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie:{
@@ -75,6 +82,7 @@ const sessionConfig = {
 
 app.use(session(sessionConfig))
 app.use(flash());
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -95,6 +103,8 @@ app.use((req,res,next)=>{
 app.use('/', userRoute);
 app.use('/posts',postRoute);
 app.use('/posts/:id/reviews',reviewsRoute);
+
+//app.use('/admin', adminRouter);
 //app.use('/domain',domainRoute);
 
 // router.get('/',catchAsync(async (req,res)=>{
